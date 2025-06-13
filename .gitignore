@@ -1,0 +1,16 @@
+# виртуальное окружение
+venv/
+.env/
+__pycache__/
+*.pyc
+
+# файлы базы данных (если используется SQLite)
+db.sqlite3
+
+# прочее
+*.log
+*.pot
+*.pyc
+.DS_Store
+.idea/
+.vscode/

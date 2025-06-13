@@ -5,6 +5,8 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django.utils import timezone
 from django.http import HttpResponse
+from django.contrib.humanize.templatetags.humanize import intcomma
+
 import csv
 from decimal import Decimal
 
