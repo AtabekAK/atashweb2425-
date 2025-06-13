@@ -1,0 +1,14 @@
+{% extends "st/base_crud.html" %}
+{# {% load crispy_forms_tags %}  УДАЛИТЕ ИЛИ ЗАКОММЕНТИРУЙТЕ ЭТУ СТРОКУ #}
+
+{% block content %}
+<h2>{{ page_title }}</h2>
+<form method="post" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}> <!-- Добавил enctype для форм с файлами -->
+    {% csrf_token %}
+    
+    {{ form.as_p }}  {# ИСПОЛЬЗУЙТЕ ЭТОТ СПОСОБ ВМЕСТО {% crispy form %} #}
+    
+    <button type="submit" class="btn btn-success mt-3">Сохранить</button>
+    <a href="{% url 'tech_type_list' %}" class="btn btn-secondary mt-3">Отмена</a>
+</form>
+{% endblock %}

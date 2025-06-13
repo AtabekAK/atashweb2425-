@@ -1,0 +1,21 @@
+{% extends "st/base_crud.html" %}
+
+{% block content %}
+<h2>{{ page_title }}</h2>
+<a href="{% url 'tech_type_create' %}" class="btn btn-primary mb-3">Добавить тип техники</a>
+{% if object_list %}
+    <ul class="list-group">
+        {% for techtype in object_list %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{% url 'tech_type_detail' techtype.pk %}">{{ techtype.name }}</a>
+                <span>
+                    <a href="{% url 'tech_type_update' techtype.pk %}" class="btn btn-sm btn-warning me-2">Редактировать</a>
+                    <a href="{% url 'tech_type_delete' techtype.pk %}" class="btn btn-sm btn-danger">Удалить</a>
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Типы техники еще не добавлены.</p>
+{% endif %}
+{% endblock %}

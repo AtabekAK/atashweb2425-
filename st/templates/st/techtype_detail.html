@@ -1,0 +1,7 @@
+{% extends "st/base_crud.html" %}
+
+{% block content %}
+<h2>{{ page_title }}</h2>
+<p><strong>Название:</strong> {{ object.name }}</p>
+<p><a href="{% url 'tech_type_list' %}" class="btn btn-secondary">Назад к списку</a></p>
+{% endblock %}

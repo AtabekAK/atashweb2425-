@@ -1,0 +1,21 @@
+{% extends "st/base_crud.html" %}
+{% load crispy_forms_tags %} <!-- Если используете, иначе {{ form.as_p }} -->
+
+{% block content %}
+<h2>{% if object %}Редактировать товар: {{ object.name }}{% else %}Добавить новый товар{% endif %}</h2>
+
+<!-- КРИТЕРИЙ (Часть 3): File Uploads (особенности сохранения файлов в формах) -->
+<!-- Для загрузки файлов форме нужен enctype="multipart/form-data" -->
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <!-- Если не используете crispy-forms: -->
+    <!-- {{ form.as_p }} -->
+
+    <!-- Если используете crispy-forms: -->
+     {% crispy form %}
+    
+    <button type="submit" class="btn btn-success">Сохранить</button>
+    <a href="{% if object %}{% url 'product_user_detail' object.pk %}{% else %}{% url 'product_user_list' %}{% endif %}" class="btn btn-secondary">Отмена</a>
+</form>
+{% endblock %}

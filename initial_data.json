@@ -1,0 +1,564 @@
+[
+    {
+    "model": "st.user",
+    "pk": 1,
+    "fields": {
+      "password": " pbkdf2_sha256$1000000$ZUvnU6ie5T2HlZtUuMeg0p$kdYS0ZNCBx1pRRlfMRu+mP2w8C52seyNIaLlcEeozF0=",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "ata",
+      "first_name": "Ata",
+      "last_name": "Admin",
+      "email": "ata@example.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-07-27T09:00:00Z",
+      "address": "Администрация сайта",
+      "phone": "+70000000000"
+    }
+  },
+  {
+    "model": "st.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$user3salt$HashedPasswordExample3",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "elena_sidorova",
+      "first_name": "Елена",
+      "last_name": "Сидорова",
+      "email": "elena@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-07-28T10:00:00Z",
+      "address": "г. Санкт-Петербург, Невский пр. 20",
+      "phone": "+79023456789"
+    }
+  },
+  {
+    "model": "st.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$user4salt$HashedPasswordExample4",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "max_smirnov",
+      "first_name": "Максим",
+      "last_name": "Смирнов",
+      "email": "max@example.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-07-28T10:05:00Z",
+      "address": "г. Новосибирск, ул. Ленина 5",
+      "phone": "+79034567890"
+    }
+  },
+  {
+    "model": "st.category",
+    "pk": 4,
+    "fields": {
+      "name": "Аудиотехника",
+      "description": "Наушники, колонки и другая аудиотехника",
+      "parent": 1
+    }
+  },
+  {
+    "model": "st.category",
+    "pk": 5,
+    "fields": {
+      "name": "Телевизоры и видео",
+      "description": "Телевизоры, проекторы и аксессуары",
+      "parent": 1
+    }
+  },
+  {
+    "model": "st.category",
+    "pk": 6,
+    "fields": {
+      "name": "Носимая электроника",
+      "description": "Умные часы, фитнес-браслеты",
+      "parent": 1
+    }
+  },
+  {
+    "model": "st.color",
+    "pk": 4,
+    "fields": {
+      "name": "Золотой",
+      "hex_code": "#FFD700"
+    }
+  },
+  {
+    "model": "st.color",
+    "pk": 5,
+    "fields": {
+      "name": "Темно-серый (Space Gray)",
+      "hex_code": "#5F5F5F"
+    }
+  },
+  {
+    "model": "st.color",
+    "pk": 6,
+    "fields": {
+      "name": "Синий",
+      "hex_code": "#0000FF"
+    }
+  },
+  {
+    "model": "st.size",
+    "pk": 5,
+    "fields": {
+      "name": "512 ГБ"
+    }
+  },
+  {
+    "model": "st.size",
+    "pk": 6,
+    "fields": {
+      "name": "6.1 дюйма"
+    }
+  },
+  {
+    "model": "st.size",
+    "pk": 7,
+    "fields": {
+      "name": "6.7 дюйма"
+    }
+  },
+  {
+    "model": "st.size",
+    "pk": 8,
+    "fields": {
+      "name": "65 дюймов"
+    }
+  },
+  {
+    "model": "st.size",
+    "pk": 9,
+    "fields": {
+      "name": "42 мм"
+    }
+  },
+  {
+    "model": "st.size",
+    "pk": 10,
+    "fields": {
+      "name": "46 мм"
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 3,
+    "fields": {
+      "name": "Apple iPhone 15 Pro",
+      "description": "Новый флагман от Apple с титановым корпусом.",
+      "brand": "Apple",
+      "is_active": true,
+      "created_at": "2024-07-29T10:00:00Z",
+      "tech_type": 1,
+      "categories": [2]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 4,
+    "fields": {
+      "name": "Samsung QLED 4K TV Q80C",
+      "description": "Яркий и контрастный телевизор с технологией Quantum Dot.",
+      "brand": "Samsung",
+      "is_active": true,
+      "created_at": "2024-07-29T10:05:00Z",
+      "tech_type": 3,
+      "categories": [5]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 5,
+    "fields": {
+      "name": "Sony WH-1000XM5",
+      "description": "Беспроводные наушники с лучшим шумоподавлением.",
+      "brand": "Sony",
+      "is_active": true,
+      "created_at": "2024-07-29T10:10:00Z",
+      "tech_type": 5,
+      "categories": [4]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 6,
+    "fields": {
+      "name": "Apple Watch Series 9",
+      "description": "Умные часы с новыми функциями здоровья.",
+      "brand": "Apple",
+      "is_active": true,
+      "created_at": "2024-07-29T10:15:00Z",
+      "tech_type": 4,
+      "categories": [6]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 7,
+    "fields": {
+      "name": "Samsung Galaxy S24 Ultra",
+      "description": "Флагманский смартфон Samsung с улучшенной камерой и S Pen.",
+      "brand": "Samsung",
+      "is_active": true,
+      "created_at": "2024-07-29T10:20:00Z",
+      "tech_type": 1,
+      "categories": [2]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 8,
+    "fields": {
+      "name": "LG OLED evo C3",
+      "description": "Телевизор с технологией OLED для идеального черного цвета.",
+      "brand": "LG",
+      "is_active": true,
+      "created_at": "2024-07-29T10:25:00Z",
+      "tech_type": 3,
+      "categories": [5]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 9,
+    "fields": {
+      "name": "Bose QuietComfort Earbuds II",
+      "description": "Компактные TWS наушники с активным шумоподавлением.",
+      "brand": "Bose",
+      "is_active": true,
+      "created_at": "2024-07-29T10:30:00Z",
+      "tech_type": 5,
+      "categories": [4]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 10,
+    "fields": {
+      "name": "Garmin Fenix 7 Pro",
+      "description": "Мультиспортивные часы для профессионалов и энтузиастов.",
+      "brand": "Garmin",
+      "is_active": true,
+      "created_at": "2024-07-29T10:35:00Z",
+      "tech_type": 4,
+      "categories": [6]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 11,
+    "fields": {
+      "name": "Apple iPhone 15",
+      "description": "Базовая модель iPhone 15.",
+      "brand": "Apple",
+      "is_active": true,
+      "created_at": "2024-07-29T10:40:00Z",
+      "tech_type": 1,
+      "categories": [2]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 12,
+    "fields": {
+      "name": "Samsung The Frame LS03B",
+      "description": "Телевизор-картина.",
+      "brand": "Samsung",
+      "is_active": true,
+      "created_at": "2024-07-29T10:45:00Z",
+      "tech_type": 3,
+      "categories": [5]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 13,
+    "fields": {
+      "name": "Apple AirPods Pro 2",
+      "description": "TWS наушники от Apple с улучшенным звуком и шумоподавлением.",
+      "brand": "Apple",
+      "is_active": true,
+      "created_at": "2024-07-29T10:50:00Z",
+      "tech_type": 5,
+      "categories": [4]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 14,
+    "fields": {
+      "name": "Xiaomi Smart Band 8",
+      "description": "Популярный фитнес-браслет.",
+      "brand": "Xiaomi",
+      "is_active": true,
+      "created_at": "2024-07-29T10:55:00Z",
+      "tech_type": 4,
+      "categories": [6]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 15,
+    "fields": {
+      "name": "Google Pixel 8 Pro",
+      "description": "Смартфон от Google с акцентом на AI и камеру.",
+      "brand": "Google",
+      "is_active": true,
+      "created_at": "2024-07-29T11:00:00Z",
+      "tech_type": 1,
+      "categories": [2]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 16,
+    "fields": {
+      "name": "Sony BRAVIA XR A95L (QD-OLED)",
+      "description": "Премиальный QD-OLED телевизор от Sony.",
+      "brand": "Sony",
+      "is_active": true,
+      "created_at": "2024-07-29T11:05:00Z",
+      "tech_type": 3,
+      "categories": [5]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 17,
+    "fields": {
+      "name": "Sennheiser Momentum True Wireless 4",
+      "description": "Аудиофильские TWS наушники.",
+      "brand": "Sennheiser",
+      "is_active": true,
+      "created_at": "2024-07-29T11:10:00Z",
+      "tech_type": 5,
+      "categories": [4]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 18,
+    "fields": {
+      "name": "Samsung Galaxy Watch 6 Classic",
+      "description": "Умные часы Samsung с вращающимся безелем.",
+      "brand": "Samsung",
+      "is_active": true,
+      "created_at": "2024-07-29T11:15:00Z",
+      "tech_type": 4,
+      "categories": [6]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 19,
+    "fields": {
+      "name": "MacBook Air M3",
+      "description": "Легкий и производительный ноутбук Apple на чипе M3.",
+      "brand": "Apple",
+      "is_active": true,
+      "created_at": "2024-07-29T11:20:00Z",
+      "tech_type": 2,
+      "categories": [3]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 20,
+    "fields": {
+      "name": "Dell XPS 15",
+      "description": "Производительный ноутбук Dell с InfinityEdge дисплеем.",
+      "brand": "Dell",
+      "is_active": true,
+      "created_at": "2024-07-29T11:25:00Z",
+      "tech_type": 2,
+      "categories": [3]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 21,
+    "fields": {
+      "name": "Смартфон Alpha X (New Edition)",
+      "description": "Обновленная версия смартфона Alpha X.",
+      "brand": "AlphaTech",
+      "is_active": true,
+      "created_at": "2024-07-29T11:30:00Z",
+      "tech_type": 1,
+      "categories": [2]
+    }
+  },
+  {
+    "model": "st.product",
+    "pk": 22,
+    "fields": {
+      "name": "Ноутбук ProBook Z15 (Upgraded)",
+      "description": "Улучшенная конфигурация ProBook Z15.",
+      "brand": "ZetaBook",
+      "is_active": true,
+      "created_at": "2024-07-29T11:35:00Z",
+      "tech_type": 2,
+      "categories": [3]
+    }
+  },
+  {
+    "model": "st.productvariant",
+    "pk": 4,
+    "fields": {
+      "product": 3,
+      "color": 5,
+      "size": 2,
+      "stock_quantity": 100,
+      "price": "129990.00",
+      "sku": "IP15PRO-GRY-256",
+      "image": ""
+    }
+  },
+  {
+    "model": "st.productvariant",
+    "pk": 5,
+    "fields": {
+      "product": 3,
+      "color": 6,
+      "size": 5,
+      "stock_quantity": 50,
+      "price": "149990.00",
+      "sku": "IP15PRO-BLU-512",
+      "image": ""
+    }
+  },
+  {
+    "model": "st.productvariant",
+    "pk": 6,
+    "fields": {
+      "product": 4,
+      "color": 1,
+      "size": 8,
+      "stock_quantity": 15,
+      "price": "110000.00",
+      "sku": "SAMQ80C-BLK-65",
+      "image": ""
+    }
+  },
+  {
+    "model": "st.productvariant",
+    "pk": 7,
+    "fields": {
+      "product": 5,
+      "color": 1,
+      "size": null,
+      "stock_quantity": 70,
+      "price": "28990.00",
+      "sku": "SONYXM5-BLK",
+      "image": ""
+    }
+  },
+  {
+    "model": "st.productvariant",
+    "pk": 8,
+    "fields": {
+      "product": 5,
+      "color": 3,
+      "size": null,
+      "stock_quantity": 40,
+      "price": "28990.00",
+      "sku": "SONYXM5-SLV",
+      "image": ""
+    }
+  },
+  {
+    "model": "st.productvariant",
+    "pk": 9,
+    "fields": {
+      "product": 6,
+      "color": 5,
+      "size": 9,
+      "stock_quantity": 60,
+      "price": "42000.00",
+      "sku": "AW9-GRY-42",
+      "image": ""
+    }
+  },
+  {
+    "model": "st.productvariant",
+    "pk": 10,
+    "fields": {
+      "product": 7,
+      "color": 1,
+      "size": 5,
+      "stock_quantity": 80,
+      "price": "135000.00",
+      "sku": "SGS24U-BLK-512",
+      "image": ""
+    }
+  },
+  {
+    "model": "st.review", "pk": 2, "fields": { "user": 3, "product": 3, "rating": 5, "comment": "iPhone как всегда на высоте!", "created_at": "2024-07-30T10:00:00Z", "is_moderated": true }
+  },
+  {
+    "model": "st.review", "pk": 3, "fields": { "user": 4, "product": 4, "rating": 4, "comment": "Хороший телевизор, но ожидал большей яркости.", "created_at": "2024-07-30T11:00:00Z", "is_moderated": true }
+  },
+  {
+    "model": "st.review", "pk": 4, "fields": { "user": 2, "product": 5, "rating": 5, "comment": "Шумоподавление просто космос!", "created_at": "2024-07-30T12:00:00Z", "is_moderated": false }
+  },
+  {
+    "model": "st.review", "pk": 5, "fields": { "user": 3, "product": 6, "rating": 5, "comment": "Очень удобные часы, много функций.", "created_at": "2024-07-30T13:00:00Z", "is_moderated": true }
+  },
+  {
+    "model": "st.review", "pk": 6, "fields": { "user": 4, "product": 7, "rating": 5, "comment": "Камера в S24 Ultra впечатляет. S Pen тоже полезен.", "created_at": "2024-07-30T14:00:00Z", "is_moderated": true }
+  },
+  {
+    "model": "st.review", "pk": 7, "fields": { "user": 2, "product": 8, "rating": 4, "comment": "OLED действительно показывает глубокий черный.", "created_at": "2024-07-30T15:00:00Z", "is_moderated": true }
+  },
+  {
+    "model": "st.review", "pk": 8, "fields": { "user": 3, "product": 9, "rating": 5, "comment": "Bose как всегда радуют качеством звука.", "created_at": "2024-07-30T16:00:00Z", "is_moderated": false }
+  },
+  {
+    "model": "st.review", "pk": 9, "fields": { "user": 4, "product": 10, "rating": 5, "comment": "Для спорта Garmin - лучший выбор.", "created_at": "2024-07-30T17:00:00Z", "is_moderated": true }
+  },
+  {
+    "model": "st.review", "pk": 10, "fields": { "user": 2, "product": 3, "rating": 4, "comment": "Дороговато, но качество Apple.", "created_at": "2024-07-30T18:00:00Z", "is_moderated": true }
+  },
+  {
+    "model": "st.order", "pk": 2, "fields": { "user": 3, "order_date": "2024-07-30T09:15:00Z", "status": "processing", "total_price": "129990.00", "shipping_address": "г. Санкт-Петербург, Невский пр. 20", "payment_method": "Наличными курьеру", "tracking_number": "TRACK002", "guest_email": null, "guest_phone": null, "guest_name": null }
+  },
+  {
+    "model": "st.order", "pk": 3, "fields": { "user": 4, "order_date": "2024-07-30T10:30:00Z", "status": "shipped", "total_price": "110000.00", "shipping_address": "г. Новосибирск, ул. Ленина 5", "payment_method": "Картой онлайн", "tracking_number": "TRACK003", "guest_email": null, "guest_phone": null, "guest_name": null }
+  },
+  {
+    "model": "st.order", "pk": 4, "fields": { "user": 2, "order_date": "2024-07-30T11:45:00Z", "status": "delivered", "total_price": "28990.00", "shipping_address": "г. Москва, ул. Тверская 10, кв 5", "payment_method": "Картой онлайн", "tracking_number": "TRACK004", "guest_email": null, "guest_phone": null, "guest_name": null }
+  },
+  {
+    "model": "st.order", "pk": 5, "fields": { "user": 3, "order_date": "2024-07-31T08:00:00Z", "status": "pending", "total_price": "42000.00", "shipping_address": "г. Санкт-Петербург, Невский пр. 20", "payment_method": "Перевод", "tracking_number": null, "guest_email": null, "guest_phone": null, "guest_name": null }
+  },
+  {
+    "model": "st.order", "pk": 6, "fields": { "user": 4, "order_date": "2024-07-31T09:20:00Z", "status": "processing", "total_price": "135000.00", "shipping_address": "г. Новосибирск, ул. Ленина 5", "payment_method": "Картой онлайн", "tracking_number": "TRACK006", "guest_email": null, "guest_phone": null, "guest_name": null }
+  },
+  {
+    "model": "st.order", "pk": 7, "fields": { "user": 2, "order_date": "2024-07-31T10:40:00Z", "status": "shipped", "total_price": "28990.00", "shipping_address": "г. Москва, ул. Тверская 10, кв 5", "payment_method": "Наличными курьеру", "tracking_number": "TRACK007", "guest_email": null, "guest_phone": null, "guest_name": null }
+  },
+  {
+    "model": "st.order", "pk": 8, "fields": { "user": null, "guest_name": "Петр Иванов", "guest_email": "guest@example.com", "guest_phone": "+79990001122", "order_date": "2024-07-31T12:00:00Z", "status": "pending", "total_price": "149990.00", "shipping_address": "г. Екатеринбург, ул. Малышева 1", "payment_method": "Картой онлайн", "tracking_number": null }
+  },
+  {
+    "model": "st.order", "pk": 9, "fields": { "user": 3, "order_date": "2024-07-31T13:20:00Z", "status": "delivered", "total_price": "158980.00", "shipping_address": "г. Санкт-Петербург, Невский пр. 20", "payment_method": "Картой онлайн", "tracking_number": "TRACK009", "guest_email": null, "guest_phone": null, "guest_name": null }
+  },
+  {
+    "model": "st.order", "pk": 10, "fields": { "user": 4, "order_date": "2024-07-31T14:40:00Z", "status": "cancelled", "total_price": "42000.00", "shipping_address": "г. Новосибирск, ул. Ленина 5", "payment_method": "Картой онлайн", "tracking_number": null, "guest_email": null, "guest_phone": null, "guest_name": null }
+  },
+  { "model": "st.orderitem", "pk": 2, "fields": { "order": 2, "variant": 4, "quantity": 1, "price_at_time": "129990.00" } },
+  { "model": "st.orderitem", "pk": 3, "fields": { "order": 3, "variant": 6, "quantity": 1, "price_at_time": "110000.00" } },
+  { "model": "st.orderitem", "pk": 4, "fields": { "order": 4, "variant": 7, "quantity": 1, "price_at_time": "28990.00" } },
+  { "model": "st.orderitem", "pk": 5, "fields": { "order": 5, "variant": 9, "quantity": 1, "price_at_time": "42000.00" } },
+  { "model": "st.orderitem", "pk": 6, "fields": { "order": 6, "variant": 10, "quantity": 1, "price_at_time": "135000.00" } },
+  { "model": "st.orderitem", "pk": 7, "fields": { "order": 7, "variant": 8, "quantity": 1, "price_at_time": "28990.00" } },
+  { "model": "st.orderitem", "pk": 8, "fields": { "order": 8, "variant": 5, "quantity": 1, "price_at_time": "149990.00" } },
+  { "model": "st.orderitem", "pk": 9, "fields": { "order": 9, "variant": 4, "quantity": 1, "price_at_time": "129990.00" } },
+  { "model": "st.orderitem", "pk": 10, "fields": { "order": 9, "variant": 7, "quantity": 1, "price_at_time": "28990.00" } },
+  { "model": "st.orderitem", "pk": 11, "fields": { "order": 10, "variant": 9, "quantity": 1, "price_at_time": "42000.00" } }
+]

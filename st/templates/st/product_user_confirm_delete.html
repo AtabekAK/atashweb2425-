@@ -1,0 +1,12 @@
+{% extends "st/base_crud.html" %}
+
+{% block content %}
+<h2>Удаление товара: {{ product.name }}</h2>
+<p>Вы уверены, что хотите удалить товар "{{ product.name }}"?</p>
+<p>Это действие нельзя будет отменить.</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Да, удалить</button>
+    <a href="{% url 'product_user_detail' product.pk %}" class="btn btn-secondary">Отмена</a>
+</form>
+{% endblock %}

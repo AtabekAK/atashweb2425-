@@ -1,0 +1,92 @@
+{# st/templates/st/order/pdf.html #}
+{% load humanize %} <!-- Для форматирования чисел -->
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Счет по заказу №{{ order.id }}</title>
+    {% if css_path %}
+    <link rel="stylesheet" href="{{ css_path }}">
+    {% else %}
+    <style>
+        body { font-family: sans-serif; margin: 0.5cm 0; color: #555; }
+        h1 { font-size: 24pt; color: #333; margin-bottom: 0.5cm; text-align: center; }
+        p { margin: 0.2cm 0; }
+        .secondary { color: #888; font-size: 10pt; }
+        .customer-details, .order-details { margin-bottom: 1cm; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 1cm; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; font-weight: bold; }
+        .num { text-align: right; }
+        tr.row1 { background-color: #f9f9f9; }
+        tr.row2 { background-color: #fff; }
+        tr.total td { font-weight: bold; border-top: 2px solid #333; }
+        .status { font-weight: bold; font-size: 14pt; text-align: right; }
+        .status.pending { color: orange; }
+        .status.paid { color: green; } /* Если бы было поле paid */
+        .status.delivered { color: blue; }
+        .status.cancelled { color: red; }
+    </style>
+    {% endif %}
+</head>
+<body>
+    <h1>Магазин "IAT"</h1>
+    <div class="order-details">
+        <p>
+            Счет №: {{ order.id }}<br>
+            <span class="secondary">
+                Дата заказа: {{ order.order_date|date:"d M Y, H:i" }}
+            </span>
+        </p>
+    </div>
+
+    <div class="customer-details">
+        <h3>Покупатель:</h3>
+        <p>
+            {% if order.user %}
+                {{ order.user.get_full_name|default:order.user.username }}<br>
+                Email: {{ order.user.email }}<br>
+                Телефон: {{ order.user.phone|default:"Не указан" }}<br>
+            {% elif order.guest_name %}
+                {{ order.guest_name }} (Гость)<br>
+                Email: {{ order.guest_email|default:"Не указан" }}<br>
+                Телефон: {{ order.guest_phone|default:"Не указан" }}<br>
+            {% else %}
+                Данные клиента не указаны
+            {% endif %}
+            Адрес доставки: {{ order.shipping_address }}
+        </p>
+    </div>
+
+    <h3>Позиции заказа:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Товар</th>
+                <th>Цена за ед.</th>
+                <th>Кол-во</th>
+                <th>Стоимость</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item_data in order.get_order_items_for_pdf %}
+            <tr class="row{% cycle '1' '2' %}">
+                <td>{{ item_data.product_name }}{{ item_data.variant_info }}</td>
+                <td class="num">{{ item_data.price|floatformat:2|intcomma }} руб.</td>
+                <td class="num">{{ item_data.quantity }}</td>
+                <td class="num">{{ item_data.cost|floatformat:2|intcomma }} руб.</td>
+            </tr>
+            {% endfor %}
+            <tr class="total">
+                <td colspan="3">Итого:</td>
+                <td class="num">{{ order.total_price|floatformat:2|intcomma }} руб.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="status {{ order.status }}">
+        Статус заказа: {{ order.get_status_display }}
+    </p>
+    <p>Метод оплаты: {{ order.get_payment_method_display }}</p>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+{% extends "st/base_crud.html" %}
+{% load humanize %}
+
+{% block content %}
+<h2>{{ product.get_full_name_with_brand }}</h2>
+<p><strong>Описание:</strong> {{ product.description|linebreaksbr }}</p>
+<p><strong>Бренд:</strong> {{ product.brand|default:"Не указан" }}</p>
+<p><strong>Тип техники:</strong> {{ product.tech_type.name }}</p>
+<p><strong>Категории:</strong> 
+    {% for cat in product.categories.all %}
+        {{ cat.name }}{% if not forloop.last %}, {% endif %}
+    {% empty %}
+        Не указаны
+    {% endfor %}
+</p>
+{% if product.instruction_manual %}
+    <p><strong>Инструкция:</strong> <a href="{{ product.instruction_manual.url }}" target="_blank">Скачать/Посмотреть</a></p>
+{% endif %}
+{% if product.manufacturer_url %}
+    <p><strong>Сайт производителя:</strong> <a href="{{ product.manufacturer_url }}" target="_blank">{{ product.manufacturer_url }}</a></p>
+{% endif %}
+<p><strong>Активен:</strong> {% if product.is_active %}Да{% else %}Нет{% endif %}</p>
+<p><strong>Добавлен:</strong> {{ product.created_at|date:"d.m.Y H:i" }}</p>
+<p><strong>Средний рейтинг:</strong> {{ product.get_average_rating|floatformat:2|default:"Нет оценок" }}</p>
+
+<h4>Варианты товара:</h4>
+{% if product.variants.all %}
+    <ul>
+    {% for variant in product.variants.all %}
+        <li>
+            {{ variant.sku }} - {{ variant.price|floatformat:2|intcomma }} руб. 
+            (Цвет: {{ variant.color.name|default:"N/A" }}, Размер: {{ variant.size.name|default:"N/A" }})
+            {% if variant.image %}
+                <img src="{{ variant.image.url }}" alt="{{ variant.sku }}" style="max-height: 50px; margin-left: 10px;">
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Нет доступных вариантов.</p>
+{% endif %}
+
+<hr>
+<a href="{% url 'product_user_update' product.pk %}" class="btn btn-warning">Редактировать товар</a>
+<a href="{% url 'product_user_delete' product.pk %}" class="btn btn-danger">Удалить товар</a>
+<a href="{% url 'product_user_list' %}" class="btn btn-secondary mt-2">Назад к списку товаров</a>
+{% endblock %}
